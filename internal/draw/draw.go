@@ -14,7 +14,6 @@ type Draw struct {
 type User struct {
 	ID         string
 	SpouseID   string
-	Drawn      bool
 	Selected   bool
 	LastYearID string
 	Pick       string
@@ -50,12 +49,12 @@ func (d *Draw) doDraw(u *User) {
 
 func (d *Draw) SetUsers() {
 	d.Users = map[string]*User{
-		"kirsten": {"kirsten", "adrian", false, false, "rudi", ""},
-		"adrian":  {"adrian", "kirsten", false, false, "kelita", ""},
-		"rudi":    {"rudi", "liane", false, false, "bill", ""},
-		"liane":   {"liane", "rudi", false, false, "adrian", ""},
-		"kelita":  {"kelita", "bill", false, false, "liane", ""},
-		"bill":    {"bill", "kelita", false, false, "kirsten", ""},
+		"kirsten": {"kirsten", "adrian", false, "bill", ""},
+		"adrian":  {"adrian", "kirsten", false, "rudi", ""},
+		"rudi":    {"rudi", "liane", false, "adrian", ""},
+		"liane":   {"liane", "rudi", false, "kelita", ""},
+		"kelita":  {"kelita", "bill", false, "kirsten", ""},
+		"bill":    {"bill", "kelita", false, "liane", ""},
 	}
 }
 
