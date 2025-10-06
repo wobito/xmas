@@ -12,6 +12,40 @@ go build -o xmas-draw ./cmd
 ./xmas-draw
 ```
 
+### 2025
+
+```bash
+Running Draw #18 ....
+Running Draw #19 ....
+Running Draw #20 ....
++---------+---------+
+|  NAME   | PICKED  |
++---------+---------+
+| adrian  | rudi    |
+| bill    | kirsten |
+| kirsten | kelita  |
+| rudi    | adrian  |
+| liane   | bill    |
+| kelita  | liane   |
++---------+---------+
+```
+
+### 2024
+
+```bash
+Running Draw #20 ....
++---------+---------+
+|  NAME   | PICKED  |
++---------+---------+
+| kirsten | bill    |
+| rudi    | kelita  |
+| liane   | kirsten |
+| kelita  | rudi    |
+| adrian  | liane   |
+| bill    | adrian  |
++---------+---------+
+```
+
 ### 2023
 
 ```bash

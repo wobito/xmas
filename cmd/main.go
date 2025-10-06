@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log/slog"
 	"os"
 	"wobitoxmas/internal/draw"
 
@@ -9,23 +10,29 @@ import (
 )
 
 func main() {
-	d := draw.NewDraw()
-	d.SetUsers()
-
-	table := tablewriter.NewWriter(os.Stdout)
-	table.SetHeader([]string{"Name", "Picked"})
-	var i int
-	for i < 20 {
-		i++
-		fmt.Printf("Running Draw #%d ....\n", i)
-		for table.NumLines() != len(d.Users) {
-			table.ClearRows()
-			d.StartDraw(table)
-			if table.NumLines() != len(d.Users) {
-				d.SetUsers()
-			}
-		}
+	d, err := draw.NewDraw()
+	if err != nil {
+		slog.Error("failed to initialize draw", slog.String("error", err.Error()))
+		os.Exit(1)
 	}
 
-	table.Render() // Send output
+	fmt.Println("Running Christmas Gift Draw...")
+	results, err := d.StartDraw()
+	if err != nil {
+		slog.Error("failed to complete draw", slog.String("error", err.Error()))
+		fmt.Println("\nNo valid assignment possible with current constraints.")
+		fmt.Println("Try adjusting the LastYearID values.")
+		os.Exit(1)
+	}
+
+	// Convert results to table format
+	tableData := make([][]string, 0, len(results))
+	for _, result := range results {
+		tableData = append(tableData, []string{result.Giver, result.Receiver})
+	}
+
+	table := tablewriter.NewWriter(os.Stdout)
+	table.Header([]string{"Name", "Picked"})
+	table.Bulk(tableData)
+	table.Render()
 }
