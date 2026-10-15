@@ -12,6 +12,22 @@ go build -o xmas-draw ./cmd
 ./xmas-draw
 ```
 
+### 2026
+
+```bash
+Running Christmas Gift Draw...
+┌─────────┬─────────┐
+│  NAME   │ PICKED  │
+├─────────┼─────────┤
+│ kirsten │ rudi    │
+│ rudi    │ kelita  │
+│ liane   │ kirsten │
+│ kelita  │ adrian  │
+│ adrian  │ bill    │
+│ bill    │ liane   │
+└─────────┴─────────┘
+```
+
 ### 2025
 
 ```bash

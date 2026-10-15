@@ -1,19 +1,19 @@
 users:
   - id: kirsten
     spouse: adrian
-    lastYear: bill
+    lastYear: kelita
   - id: rudi
     spouse: liane
-    lastYear: kelita
+    lastYear: adrian
   - id: liane
     spouse: rudi
-    lastYear: kirsten
+    lastYear: bill
   - id: kelita
     spouse: bill
-    lastYear: rudi
+    lastYear: liane
   - id: adrian
     spouse: kirsten
-    lastYear: liane
+    lastYear: rudi
   - id: bill
     spouse: kelita
-    lastYear: adrian
+    lastYear: kirsten
